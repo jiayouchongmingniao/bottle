@@ -1,0 +1,283 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-gray-900 antialiased;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-colors duration-200
+           focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary/90
+           focus:ring-primary/50;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary/90
+           focus:ring-secondary/50;
+  }
+  
+  .btn-accent {
+    @apply bg-accent text-white hover:bg-accent/90
+           focus:ring-accent/50;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-lg p-6
+           transform transition-all duration-300
+           hover:shadow-xl hover:-translate-y-1;
+  }
+  
+  .input {
+    @apply w-full px-4 py-2 rounded-lg border border-gray-300
+           focus:outline-none focus:ring-2 focus:ring-primary/50
+           focus:border-transparent;
+  }
+  
+  .label {
+    @apply block text-sm font-medium text-gray-700 mb-1;
+  }
+}
+
+.bottle-container {
+  perspective: 1000px;
+  padding: 2rem 0 6rem;
+  position: relative;
+  min-height: 500px;
+  width: 100%;
+}
+
+.bottle-card {
+  opacity: 0;
+  transform: translateY(100%) rotateX(-60deg);
+  transform-origin: top;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  z-index: 2;
+  padding: 0 2rem;
+}
+
+.bottle-card .card {
+  margin-bottom: 120px;
+  position: relative;
+  z-index: 2;
+}
+
+.bottle-card.show {
+  opacity: 1;
+  transform: translateY(0) rotateX(0);
+}
+
+.bottle-content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  transition-delay: 0.3s;
+}
+
+.bottle-content.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ocean-wave {
+  position: absolute;
+  overflow: hidden;
+  height: 300px;
+  z-index: 1;
+  width: 100%;
+  left: 0;
+  top: 20%;
+  background: linear-gradient(180deg, 
+    transparent 5%,
+    rgba(147, 197, 253, 0.2) 20%,
+    rgba(147, 197, 253, 0.4) 35%,
+    rgba(147, 197, 253, 0.6) 50%
+  );
+}
+
+.wave {
+  position: absolute;
+  height: 100%;
+  border-radius: 45%;
+  animation-timing-function: cubic-bezier(0.36, 0.45, 0.63, 0.53);
+  animation-iteration-count: infinite;
+}
+
+.wave1 {
+  width: 200%;
+  background: linear-gradient(45deg, 
+    rgba(59, 130, 246, 0.3) 20%, 
+    rgba(96, 165, 250, 0.3) 40%, 
+    rgba(147, 197, 253, 0.3) 60%
+  );
+  left: -50%;
+  top: 48%;
+  animation: wave1 11s infinite;
+  transform-origin: 50% 48%;
+}
+
+.wave2 {
+  width: 190%;
+  background: linear-gradient(45deg, 
+    rgba(96, 165, 250, 0.25) 30%, 
+    rgba(147, 197, 253, 0.25) 50%, 
+    rgba(186, 230, 253, 0.25) 70%
+  );
+  left: -45%;
+  top: 45%;
+  animation: wave2 13s infinite;
+  transform-origin: 49% 50%;
+}
+
+.wave3 {
+  width: 195%;
+  background: linear-gradient(45deg, 
+    rgba(59, 130, 246, 0.2) 25%, 
+    rgba(96, 165, 250, 0.2) 45%, 
+    rgba(147, 197, 253, 0.2) 65%
+  );
+  left: -47.5%;
+  top: 42%;
+  animation: wave3 17s infinite;
+  transform-origin: 51% 52%;
+}
+
+.wave4 {
+  width: 205%;
+  background: linear-gradient(45deg, 
+    rgba(96, 165, 250, 0.15) 20%, 
+    rgba(147, 197, 253, 0.15) 40%, 
+    rgba(186, 230, 253, 0.15) 60%
+  );
+  left: -52.5%;
+  top: 40%;
+  animation: wave4 19s infinite;
+  transform-origin: 52% 51%;
+}
+
+.wave-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(
+    circle at 50% 40%,
+    rgba(186, 230, 253, 0.1) 0%,
+    rgba(147, 197, 253, 0.05) 45%,
+    transparent 70%
+  );
+  animation: glow 8s ease-in-out infinite alternate;
+}
+
+@keyframes wave1 {
+  0% {
+    transform: translateX(-1%) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateX(2%) rotate(90deg) scale(1.02);
+  }
+  50% {
+    transform: translateX(-1%) rotate(180deg) scale(1);
+  }
+  75% {
+    transform: translateX(2%) rotate(270deg) scale(1.02);
+  }
+  100% {
+    transform: translateX(-1%) rotate(360deg) scale(1);
+  }
+}
+
+@keyframes wave2 {
+  0% {
+    transform: translateX(1%) rotate(360deg) scale(1.02);
+  }
+  25% {
+    transform: translateX(-2%) rotate(270deg) scale(1);
+  }
+  50% {
+    transform: translateX(1%) rotate(180deg) scale(1.02);
+  }
+  75% {
+    transform: translateX(-2%) rotate(90deg) scale(1);
+  }
+  100% {
+    transform: translateX(1%) rotate(0deg) scale(1.02);
+  }
+}
+
+@keyframes wave3 {
+  0% {
+    transform: translateX(-1.5%) rotate(180deg) scale(1.01);
+  }
+  25% {
+    transform: translateX(1.5%) rotate(270deg) scale(0.99);
+  }
+  50% {
+    transform: translateX(-1.5%) rotate(360deg) scale(1.01);
+  }
+  75% {
+    transform: translateX(1.5%) rotate(90deg) scale(0.99);
+  }
+  100% {
+    transform: translateX(-1.5%) rotate(180deg) scale(1.01);
+  }
+}
+
+@keyframes wave4 {
+  0% {
+    transform: translateX(2%) rotate(180deg) scale(0.98);
+  }
+  25% {
+    transform: translateX(-1%) rotate(90deg) scale(1.02);
+  }
+  50% {
+    transform: translateX(2%) rotate(0deg) scale(0.98);
+  }
+  75% {
+    transform: translateX(-1%) rotate(270deg) scale(1.02);
+  }
+  100% {
+    transform: translateX(2%) rotate(180deg) scale(0.98);
+  }
+}
+
+@keyframes glow {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+.bottle-float {
+  animation: float 8s ease-in-out infinite;
+  transform-origin: center bottom;
+  will-change: transform;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(-0.5deg);
+  }
+  75% {
+    transform: translateY(-6px) rotate(0.3deg);
+  }
+}

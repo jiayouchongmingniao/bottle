@@ -1,0 +1,45 @@
+{
+  "name": "mood-bottle",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "init-db": "ts-node scripts/init-db.ts"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.0.18",
+    "@types/node": "^20.8.2",
+    "@types/react": "^18.2.25",
+    "@types/react-dom": "^18.2.10",
+    "@types/uuid": "^9.0.7",
+    "@vitalets/google-translate-api": "^9.2.0",
+    "autoprefixer": "^10.4.16",
+    "axios": "^1.7.7",
+    "bufferutil": "^4.0.8",
+    "casdoor-js-sdk": "^0.16.0",
+    "casdoor-react-sdk": "^1.2.0",
+    "date-fns": "^2.30.0",
+    "dotenv": "^16.4.5",
+    "encoding": "^0.1.13",
+    "mysql2": "^3.6.5",
+    "next": "^13.5.7",
+    "openai": "^4.73.0",
+    "postcss": "^8.4.31",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "socket.io": "^4.7.2",
+    "socket.io-client": "^4.7.2",
+    "tailwindcss": "^3.3.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2",
+    "utf-8-validate": "^6.0.5",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.50.0",
+    "eslint-config-next": "13.5.4"
+  }
+}
